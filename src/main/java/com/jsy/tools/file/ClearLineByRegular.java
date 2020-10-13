@@ -1,5 +1,6 @@
 package com.jsy.tools.file;
 
+import com.jsy.tools.util.CloseableUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.io.BufferedReader;
@@ -71,7 +72,8 @@ public class ClearLineByRegular {
         }
 
         System.out.println("end with succeed");
-        in.close();
-        out.close();
+
+        CloseableUtils.closeQuietly(in);
+        CloseableUtils.closeQuietly(out);
     }
 }
